@@ -1,9 +1,9 @@
 {  
    "name" : "mainFolder",
-   "pass" : None,
+   "pass" : null,
    "unlocked" : true,
    "fileType" : "folder",
-   "container" : None,
+   "container" : null,
    "contents" : [
        {
            "name" : "location1",
