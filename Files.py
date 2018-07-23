@@ -3,11 +3,11 @@ import json
     
 class Folder():
     # each file object should know it's containing folder, and what it contains.
-    def __init__(self, name, Contents, container, encrypted, password, fileType):
+    def __init__(self, name, Contents, container, unlocked, password):
         self.name = name
         self.contents = Contents
         self.container = container
-        self.ecrypted = bool
+        self.unlocked = unlocked
         self.password = password
         
     def getContents(self):

@@ -1,9 +1,13 @@
 import json
 from Files import Folder 
 
-mainFolder = Folder("MainFolder", {"wack":"hack"}, None, False, None,"Folder")
+# This next bit just opens the json temporarily as fp and parses it with json.load()
+with open('resources/main.json', 'r') as fp:
+    jsonData = json.load(fp)
 
-def printcontents(contents):
+mainFolder = Folder(jsonData["name"], jsonData["contents"], jsonData["container"], jsonData["unlocked"], jsonData["pass"])
+
+def printContents(contents):
     for i in range(len(contents)):
         print(contents[i])
 
