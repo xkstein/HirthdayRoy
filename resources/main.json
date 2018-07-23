@@ -1,0 +1,36 @@
+{
+   "folders" : [
+       {
+           "name" : "location1",
+           "pass" : "Marriott Library",
+           "unlocked" : false,
+           "fileType" : "folder",
+           "container" : "mainFolder",
+           "contents" : [
+               {
+                   "name" : "hint1",
+                   "pass" : "bleh",
+                   "unlocked" : false,
+                   "fileType" : "textFile",
+                   "words" : "kl;jasdfkl;asdfjl;asdf;jljkl;asdfkl;"
+               }
+           ]
+       },
+       {
+           "name" : "location2",
+           "pass" : "Foothills",
+           "unlocked" : false,
+           "container" : "mainFolder",
+           "fileType" : "folder",
+           "contents" : []
+       },
+       {
+           "name" : "location3",
+           "pass" : "Capital",
+           "unlocked" : false,
+           "container" : "mainFolder",
+           "fileType" : "folder",
+           "contents" : []
+       }
+   ]
+}
