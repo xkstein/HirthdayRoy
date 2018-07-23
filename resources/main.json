@@ -1,5 +1,10 @@
-{
-   "folders" : [
+{  
+   "name" : "mainFolder",
+   "pass" : None,
+   "unlocked" : true,
+   "fileType" : "folder",
+   "container" : None,
+   "contents" : [
        {
            "name" : "location1",
            "pass" : "Marriott Library",
