@@ -14,8 +14,8 @@ class Folder():
             item = Contents[x]
             if (item["fileType"] == "folder"):
                 contents[x] = Folder(item["name"], item["unlocked"], item["pass"], item ["container"], item["contents"])
-            elif (item["fileType"] == "textFile"):
-                contents[x] = TextFile(item["name"], item["unlocked"], item["pass"], item["words"])
+            elif (item["fileType"] == "file"):
+                contents[x] = File(item["name"], item["unlocked"], item["pass"], item["path"])
         
         self.contents = contents
 
@@ -28,13 +28,13 @@ class Folder():
         return inside
     '''
 
-class TextFile():
-    # Alright, so I hope this isn't what we'll do, but rn Words holds the content of the file
-    def __init__(self, Name, Unlocked, Password, Words):
+class File():
+    # Alright, what I've learned is that exec(open('file.txt').read()) actually runs the code now, so I may just do that instead of filetypes
+    def __init__(self, Name, Unlocked, Password, Path):
         self.name = Name
         self.unlocked = Unlocked
         self.password = Password
-        self.words = Words
+        self.path = Path
 
 #print(Zone1.contents)
 #Zone1.getContents()
