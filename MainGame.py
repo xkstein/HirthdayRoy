@@ -10,7 +10,10 @@ def printcontents(contents):
 def Game():
     running = bool
     currentDirectory = mainFolder
-
-    printcontents(currentDirectory.getContents())
+    while running == True:
+        print(currentDirectory.name)
+        command_input = input('Command: ')
+        #printcontents(currentDirectory.getContents())
+        
 
 Game()
