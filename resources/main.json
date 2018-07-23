@@ -18,15 +18,7 @@
                    "unlocked" : false,
                    "fileType" : "file",
                    "path" : "print('Hello World')"
-               }, 
-               {
-                   "name" : "location2",
-                   "pass" : "Foothills",
-                   "unlocked" : false,
-                   "container" : "mainFolder",
-                   "fileType" : "folder",
-                    "contents" : []
-                }
+               }
            ]
        },
        {
