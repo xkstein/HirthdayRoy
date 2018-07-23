@@ -5,13 +5,14 @@ from Files import Folder
 with open('resources/main.json', 'r') as fp:
     jsonData = json.load(fp)
 
-mainFolder = Folder(jsonData["name"], jsonData["contents"], jsonData["container"], jsonData["unlocked"], jsonData["pass"])
+mainFolder = Folder(jsonData["name"], jsonData["unlocked"], jsonData["pass"], jsonData["container"], jsonData["contents"])
 
 def printContents(contents):
     for i in range(len(contents)):
-        print(contents[i])
+        print(contents[i].name)
 
 def Game():
+    printContents(mainFolder.contents)
     running = bool
     currentDirectory = mainFolder
     while running == True:
