@@ -3,7 +3,7 @@ import json
     
 class Folder():
     # each file object should know it's containing folder, and what it contains.
-    def __init__(self, name, Contents, container, encrypted, password):
+    def __init__(self, name, Contents, container, encrypted, password, fileType):
         self.name = name
         self.contents = Contents
         self.container = container
@@ -14,13 +14,8 @@ class Folder():
         for key in self.contents:
             inside = []
             inside.append(key)
-            print(inside)
+        return inside
 
-Zone1 = Folder("Zone1", {"junk":"trunk","bad":"good"}, "HomeZone", True, "Funk")
 
 #print(Zone1.contents)
-Zone1.getContents()
-        
-
-
-        
+#Zone1.getContents()
