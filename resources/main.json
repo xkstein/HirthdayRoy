@@ -16,9 +16,17 @@
                    "name" : "hint1",
                    "pass" : "bleh",
                    "unlocked" : false,
-                   "fileType" : "textFile",
-                   "words" : "kl;jasdfkl;asdfjl;asdf;jljkl;asdfkl;"
-               }
+                   "fileType" : "file",
+                   "path" : "print('Hello World')"
+               }, 
+               {
+                   "name" : "location2",
+                   "pass" : "Foothills",
+                   "unlocked" : false,
+                   "container" : "mainFolder",
+                   "fileType" : "folder",
+                    "contents" : []
+                }
            ]
        },
        {
