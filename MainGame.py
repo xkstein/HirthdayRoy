@@ -8,24 +8,24 @@ with open('resources/main.json', 'r') as fp:
 
 mainFolder = Folder(jsonData["name"], jsonData["unlocked"], jsonData["pass"], jsonData["container"], jsonData["contents"])
 
+'''
+I think User.look makes this functionally obsolete, but I don't really wanna delete it yet because it prints the 
+entire contents which may be nice for debuging
+
 def printContents(contents):
     for i in range(len(contents)):
         print(contents[i].name)
         for object in contents[i].contents:
             print(contents[i].contents[object].name)
+'''
 
 def Game():
     user = User(mainFolder)
-    print(user.look())
-    user.enter('location1')
-    print(user.look())
-    currentDirectory = mainFolder
-    printContents(mainFolder.contents)
-    running = bool
-    #currentDirectory = mainFolder
-    while running == True:
-        print(currentDirectory.name)
-        command_input = input('Command: ')
+    user.look()
+    while True:
+        #print(currentDirectory.name)
+        command_input = input('\nCommand: ')
+        user.runCommand(command_input)
         #printcontents(currentDirectory.getContents())
         
 Game()
