@@ -5,6 +5,7 @@ class User():
         # I know this is bad un-modular code, but like ahhh, I'm going to assume that we'll only declare users at start
         self.fullDir = StartFolder
         self.currentDir = StartFolder
+        self.parentFolder = StartFolder
 
     # So this basically processes the strings sent over by the MainGame object and runs the methods they envoke
     def runCommand(self, query):
@@ -39,11 +40,27 @@ class User():
                 else: 
                     print("That item has the incorrect filetype, try entering 'open " + folderName + "' if you're attempting to run a file")
 
-    # Bro idk how to write this off the top of my head. Current thinking is to actually have the game cycle through all the fucking contents of all the possible folders until it matches self.contents and then fucking just set it equal to the last. that can't be most efficient though
+    # Alright, so this scans all the folders within the given queryFolder for contents and scans all those contents for a matching name. If it doesn't find a name match in a given folder it scans all of its contents by calling itself (recursively, I think) and so on
+    def findParent(self, queryFolder):
+        for i in range(0, len(queryFolder.contents)):
+            if (type(queryFolder.contents[i]) is Files.Folder):
+                if (queryFolder.contents[i] == self.currentDir):
+                    print("Parent folder found")
+                    self.parentFolder = queryFolder
+                    self.parentFound = True
+                    return None
+                else:
+                    self.findParent(queryFolder.contents[i]) 
+
+    # Essentially this just sends the folder where the search should start (ususally the root folder) to the findParent function which will set parentFound to true once it has a result. Upon this it changes the current directory to its found parent directory and prints telling the user
     def back(self):
-        for object in self.fullDir.contents:
-            if (self.fullDir.contents[object] == self.currentDir):
-                self.currentDir = self.fullDir
+        self.parentFound = False
+        self.findParent(self.fullDir)
+        if self.parentFound:
+            self.currentDir = self.parentFolder
+            print("Changing directory to " + self.currentDir.name)
+        else:
+            print("What the fuck, I can't find the parent folder, fucking what")
 
     # This cycles through every entry in the contents of currentDir and prints a list of their names
     def look(self):
