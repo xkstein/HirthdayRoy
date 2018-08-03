@@ -1,41 +1,42 @@
-{  
-   "name" : "mainFolder",
-   "pass" : null,
-   "unlocked" : true,
-   "fileType" : "folder",
-   "container" : null,
-   "contents" : [
-       {
-           "name" : "location1",
-           "pass" : "Marriott Library",
-           "unlocked" : false,
-           "fileType" : "folder",
-           "container" : "mainFolder",
-           "contents" : [
-               {
-                   "name" : "hint1",
-                   "pass" : "bleh",
-                   "unlocked" : false,
-                   "fileType" : "file",
-                   "path" : "print('Hello World')"
-               }
-           ]
-       },
-       {
-           "name" : "location2",
-           "pass" : "Foothills",
-           "unlocked" : false,
-           "container" : "mainFolder",
-           "fileType" : "folder",
-           "contents" : []
-       },
-       {
-           "name" : "location3",
-           "pass" : "Capital",
-           "unlocked" : false,
-           "container" : "mainFolder",
-           "fileType" : "folder",
-           "contents" : []
-       }
-   ]
+{
+    "name": "mainFolder",
+    "pass": null,
+    "unlocked": true,
+    "fileType": "folder",
+    "container": null,
+    "contents": [
+        {
+            "name": "location1",
+            "pass": "Marriott Library",
+            "unlocked": false,
+            "fileType": "folder",
+            "container": "mainFolder",
+            "contents": [
+                {
+                    "name": "hint1",
+                    "pass": "bleh",
+                    "unlocked": false,
+                    "fileType": "file",
+                    "container": "location1",
+                    "path": "print('Hello World')"
+                }
+            ]
+        },
+        {
+            "name": "location2",
+            "pass": "Foothills",
+            "unlocked": true,
+            "container": "mainFolder",
+            "fileType": "folder",
+            "contents": []
+        },
+        {
+            "name": "location3",
+            "pass": "Capital",
+            "unlocked": false,
+            "container": "mainFolder",
+            "fileType": "folder",
+            "contents": []
+        }
+    ]
 }
