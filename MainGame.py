@@ -14,11 +14,13 @@ def printContents(contents):
 '''
 
 def Game():
-    os.system("clear")
     user = User()
     while True:
-        commandInput = input('\nCommand: ')
+        # dunno, kinda wanted to show what folder hes in, im sure theres a more intuative elegant way, go wild
+        commandInput = input('\nQuestAIDS~/' + user.currentDir.name + '/~$ ')
         user.runCommand(commandInput)
 
+os.system("clear")
+print("Welcome to QUEST AIDS\n[working title. yeah uncertain what you want this to look like, everything I've added is just placeholder, go wild]\n\ntry entering 'help'\n")
 Game()
 

@@ -100,14 +100,14 @@ class User():
 
     # This cycles through every entry in the contents of currentDir and prints a list of their names
     def look(self):
-        print("Contents of current directory: ")
+        print("\nContents of current directory: \n")
         dirObjects = []
         for object in self.currentDir.contents:
             dirObjects.append(self.currentDir.contents[object].name)
         print(*dirObjects, sep="\n")
 
     def help(self):
-        print("Availible functions: \n\nopen ['file name']\nenter ['directory name']\nback\nlook\nquit")
+        print("\nAvailible functions: \n\nopen ['file name']       <- Opens files\nenter ['directory name'] <- Enters folder\nback                     <- Goes back to the previous directory\nlook                     <- Scans current folder and prints contents\nquit")
         return None
 
     # This quits the application
