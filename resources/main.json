@@ -7,8 +7,8 @@
     "contents": [
         {
             "name": "location1",
-            "pass": "Marriott Library",
-            "unlocked": false,
+            "pass": "marriott",
+            "unlocked": true,
             "fileType": "folder",
             "container": "mainFolder",
             "contents": [
@@ -24,15 +24,15 @@
         },
         {
             "name": "location2",
-            "pass": "Foothills",
-            "unlocked": true,
+            "pass": "foothills",
+            "unlocked": false,
             "container": "mainFolder",
             "fileType": "folder",
             "contents": []
         },
         {
             "name": "location3",
-            "pass": "Capital",
+            "pass": "capital",
             "unlocked": false,
             "container": "mainFolder",
             "fileType": "folder",

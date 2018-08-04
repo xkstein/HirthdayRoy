@@ -23,18 +23,19 @@ class User():
         self.jsonDir = 'jsonData' + ''.join('["{i}"][{j}]'.format(i = self.path[k][0], j = self.path[k][1]) for k in range(0, len(self.path)))
 
     def unlockItem(self, item):
-        userInput = input("This item is locked\nEnter password: ")
-        if (userInput == item.password):
-            print('Password Approved')
-            self.findJsonDir()
-            with open('resources/main.json', '+r') as fp:
-                jsonData = json.load(fp)
-                exec(self.jsonDir + '["unlocked"] = True')
-                fp.seek(0)
-                json.dump(jsonData, fp, indent=4)
-                fp.truncate()
-            del self.path[len(self.path) - 1]
-            self.reinitFolders()
+        userInput = input("This item is locked\n\nEnter password: ").lower().split()
+        for i in range(0, len(userInput)):
+            if (userInput[i] == item.password):
+                print('Password Approved')
+                self.findJsonDir()
+                with open('resources/main.json', '+r') as fp:
+                    jsonData = json.load(fp)
+                    exec(self.jsonDir + '["unlocked"] = True')
+                    fp.seek(0)
+                    json.dump(jsonData, fp, indent=4)
+                    fp.truncate()
+                del self.path[len(self.path) - 1]
+                self.reinitFolders()
     
 # So this basically processes the strings sent over by the MainGame object and runs the methods they envoke
     def runCommand(self, query):
@@ -52,14 +53,19 @@ class User():
         for i in range(0, len(self.currentDir.contents)):
             if (fileName == self.currentDir.contents[i].name):
                 if (type(self.currentDir.contents[i]) is Files.File):
-                    exec(self.currentDir.contents[i].path)
-                    return None
+                    if (not self.currentDir.contents[i].unlocked):
+                        self.path.append(['contents', i])
+                        self.unlockItem(self.currentDir.contents[i])
+                    if (self.currentDir.contents[i].unlocked):
+                        exec(self.currentDir.contents[i].path)
+                        return None
+                    else:
+                        print("Incorrect Password")
                 else:
                     print("That appears to be the incorrect filetype, try entering 'enter " + fileName + "' if you're attempting to change directories")
     
     # This works the same as open() just it makes self.currentFolder the matching folder
     def enter(self, folderName):
-        print("looking for " + folderName + ". . .")
         for i in range(0, len(self.currentDir.contents)):
             if (folderName == self.currentDir.contents[i].name):
                 if (type(self.currentDir.contents[i]) is Files.Folder):
@@ -69,7 +75,6 @@ class User():
                     if (self.currentDir.contents[i].unlocked):
                         self.path.append(['contents', i])
                         self.currentDir = self.currentDir.contents[i]
-                        print(self.path)
                         print("Sucessfully entered directory " + folderName)
                         return None
                     else:

@@ -1,4 +1,4 @@
-import json
+import json, os
 from Files import Folder
 from User import User 
 
@@ -14,6 +14,7 @@ def printContents(contents):
 '''
 
 def Game():
+    os.system("clear")
     user = User()
     while True:
         commandInput = input('\nCommand: ')
